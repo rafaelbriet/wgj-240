@@ -345,8 +345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameTimeInSecond: 60
   fishTankCenter: {x: 0, y: -1}
-  fishTankSize: {x: 15, y: 7}
-  fishAmount: 10
+  fishTankSize: {x: 16, y: 6}
+  fishSpacing: 2
   fishPrefab: {fileID: 7406113507784670145, guid: f162ab5b24168734e9b2a5755ee936ea, type: 3}
 --- !u!4 &359313385
 Transform:

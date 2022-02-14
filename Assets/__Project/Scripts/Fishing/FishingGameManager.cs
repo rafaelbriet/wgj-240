@@ -9,7 +9,7 @@ public class FishingGameManager : GameManager
     [SerializeField]
     private Vector2 fishTankSize = new Vector2(5f, 5f);
     [SerializeField]
-    private int fishAmount = 10;
+    private float fishSpacing = 1f;
     [SerializeField]
     private GameObject fishPrefab;
 
@@ -30,7 +30,7 @@ public class FishingGameManager : GameManager
 
     public override void StartGame()
     {
-        fishList = new List<GameObject>(fishAmount);
+        fishList = new List<GameObject>();
 
         SpawnFish();
 
@@ -56,13 +56,18 @@ public class FishingGameManager : GameManager
 
     private void SpawnFish()
     {
-        for (int i = 0; i <= fishAmount; i++)
+        float xPosition = -(fishTankSize.x / 2 - fishTankCenter.x + (fishSpacing / 2));
+        
+        for (float x = -fishTankSize.x / 2; x < fishTankSize.x / 2; x += fishSpacing)
         {
-            float xSpawnPosition = Random.Range(-fishTankSize.x / 2, fishTankSize.x / 2);
-            float ySpawnPosition = Random.Range(-fishTankSize.y / 2, fishTankSize.y / 2);
-            Vector2 spawnPosition = new Vector2(xSpawnPosition, ySpawnPosition);
+            xPosition += fishSpacing;
+            float yPosition = -(fishTankSize.y / 2 - fishTankCenter.y + (fishSpacing / 2));
 
-            fishList.Add(Instantiate(fishPrefab, spawnPosition, Quaternion.identity));
+            for (float y = -fishTankSize.y / 2; y < fishTankSize.y / 2; y += fishSpacing)
+            {
+                yPosition += fishSpacing;
+                fishList.Add(Instantiate(fishPrefab, new Vector2(xPosition, yPosition), Quaternion.identity));
+            }
         }
     }
 }

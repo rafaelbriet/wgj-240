@@ -25,6 +25,12 @@ public class Fish : MonoBehaviour
         angle = Random.Range(-startingAngleOffset, startingAngleOffset);
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(startingPosition, radius);
+    }
+
     private void Update()
     {
         if (IsHooked)

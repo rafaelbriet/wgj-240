@@ -155,4 +155,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsAmount: 50
   rotateSpeed: 2
-  radius: 1
+  radius: 0.5
+  startingAngleOffset: 5
