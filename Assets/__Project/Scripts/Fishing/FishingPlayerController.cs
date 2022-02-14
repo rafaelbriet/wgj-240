@@ -33,7 +33,7 @@ public class FishingPlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Fish hookedFish))
+        if (collision.TryGetComponent(out Fish hookedFish) && IsHooking == false)
         {
             IsHooking = true;
             HookedFish = hookedFish;
