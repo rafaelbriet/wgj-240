@@ -11,12 +11,23 @@ public class FishingPlayerController : MonoBehaviour
     private Transform hookStartPosition;
 
     private Vector2 moveDirection;
+    private GameManager gameManager;
 
     public bool IsHooking { get; private set; }
     public Fish HookedFish { get; private set; }
 
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     private void Update()
     {
+        if (gameManager.CurrentGameState != GameState.Playing)
+        {
+            return;
+        }
+
         transform.Translate(speed * Time.deltaTime * moveDirection);
     }
 
@@ -33,6 +44,7 @@ public class FishingPlayerController : MonoBehaviour
         {
             IsHooking = false;
             moveDirection = Vector2.zero;
+            gameManager.Score(HookedFish.PointsAmount);
             Destroy(HookedFish.gameObject);
         }
     }
