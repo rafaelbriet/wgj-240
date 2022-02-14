@@ -37,6 +37,7 @@ public class FishingPlayerController : MonoBehaviour
         {
             IsHooking = true;
             HookedFish = hookedFish;
+            HookedFish.IsHooked = true;
             HookedFish.transform.SetParent(transform);
 
         }
