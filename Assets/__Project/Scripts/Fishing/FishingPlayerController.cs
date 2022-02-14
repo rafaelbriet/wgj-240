@@ -53,7 +53,7 @@ public class FishingPlayerController : MonoBehaviour
     {
         if (IsHooking)
         {
-            moveDirection = hookStartPosition.position - transform.position;
+            moveDirection = (hookStartPosition.position - transform.position).normalized;
             return;
         }
 

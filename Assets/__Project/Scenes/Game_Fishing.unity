@@ -703,7 +703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20796e446409e64897bab82326b4dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 5
   hookStartPosition: {fileID: 1394868542}
 --- !u!114 &1651505858
 MonoBehaviour:
