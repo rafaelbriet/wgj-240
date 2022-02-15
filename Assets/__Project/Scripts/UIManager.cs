@@ -10,6 +10,12 @@ public class UIManager : MonoBehaviour
     private TextMeshProUGUI gameScoreText;
     [SerializeField]
     private TextMeshProUGUI gameTimeText;
+    [SerializeField]
+    private GameObject tutorialCanvas;
+    [SerializeField]
+    private GameObject gameOverCanvas;
+    [SerializeField]
+    private TextMeshProUGUI gameHighscoreText;
 
     private GameManager gameManager;
 
@@ -18,11 +24,29 @@ public class UIManager : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
 
         gameManager.PlayerScored += OnPlayerScored;
+        gameManager.GameStarted += OnGameStarted;
+        gameManager.GameEnded += OnGameEnded;
+
+        tutorialCanvas.SetActive(true);
+        gameOverCanvas.SetActive(false);
     }
 
     private void Update()
     {
         UpdateGameTime();
+    }
+
+    private void OnGameStarted(object sender, EventArgs e)
+    {
+        tutorialCanvas.SetActive(false);
+        gameOverCanvas.SetActive(false);
+    }
+
+    private void OnGameEnded(object sender, EventArgs e)
+    {
+        gameOverCanvas.SetActive(true);
+
+        gameHighscoreText.text = gameManager.GameScore.ToString();
     }
 
     private void OnPlayerScored(object sender, EventArgs e)

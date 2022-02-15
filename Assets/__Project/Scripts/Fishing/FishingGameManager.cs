@@ -12,9 +12,11 @@ public class FishingGameManager : GameManager
     private float fishSpacing = 1f;
     [SerializeField]
     private GameObject fishPrefab;
+    [SerializeField]
+    private FishingPlayerController playerController;
 
     private List<GameObject> fishList;
-
+    
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
@@ -30,17 +32,36 @@ public class FishingGameManager : GameManager
 
     public override void StartGame()
     {
+        OnGameStarted();
+        
         fishList = new List<GameObject>();
 
         SpawnFish();
-
         StartGameTimer();
+
         ChangeGameState(GameState.Playing);
     }
 
     public override void StopGame()
     {
+        OnGameEnded();
         ChangeGameState(GameState.Ended);
+    }
+
+    public override void RestartGame()
+    {
+        foreach (GameObject fish in fishList)
+        {
+            Destroy(fish);
+        }
+
+        fishList.Clear();
+
+        ResetGameScore();
+
+        playerController.ResetPlayer();
+
+        StartGame();
     }
 
     public void RemoveFish(GameObject fish)

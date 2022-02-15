@@ -15,6 +15,8 @@ public class TargetShootingManager : GameManager
 
     public override void StartGame()
     {
+        OnGameStarted();
+
         StartCoroutine(SpawnTarget());
 
         StartGameTimer();
@@ -23,6 +25,8 @@ public class TargetShootingManager : GameManager
 
     public override void StopGame()
     {
+        OnGameEnded();
+
         StopAllCoroutines();
 
         ChangeGameState(GameState.Ended);
@@ -59,5 +63,19 @@ public class TargetShootingManager : GameManager
 
             yield return null;
         }
+    }
+
+    public override void RestartGame()
+    {
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
+
+        foreach (GameObject target in targets)
+        {
+            Destroy(target);
+        }
+
+        ResetGameScore();
+
+        StartGame();
     }
 }

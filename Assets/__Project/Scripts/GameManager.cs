@@ -10,7 +10,11 @@ public abstract class GameManager : MonoBehaviour
     [SerializeField]
     protected float gameTimeInSecond = 60f;
 
+    private CircusManager circusManager;
+
     public event EventHandler PlayerScored;
+    public event EventHandler GameStarted;
+    public event EventHandler GameEnded;
 
     public int GameScore { get; protected set; }
     public float GameTime { get; protected set; }
@@ -19,8 +23,11 @@ public abstract class GameManager : MonoBehaviour
     private void Awake()
     {
         ChangeGameState(GameState.Starting);
+    }
 
-        StartGame();
+    private void Start()
+    {
+        circusManager = FindObjectOfType<CircusManager>();
     }
 
     private void Update()
@@ -31,6 +38,8 @@ public abstract class GameManager : MonoBehaviour
     public abstract void StartGame();
 
     public abstract void StopGame();
+
+    public abstract void RestartGame();
 
     public abstract void Score(int amount);
 
@@ -47,6 +56,26 @@ public abstract class GameManager : MonoBehaviour
         PlayerScored?.Invoke(this, EventArgs.Empty);
     }
 
+    public void LoadScene(string sceneName)
+    {
+        if (circusManager == null)
+        {
+            return;
+        }
+
+        circusManager.LoadScene(sceneName);
+    }
+
+    protected virtual void OnGameStarted()
+    {
+        GameStarted?.Invoke(this, EventArgs.Empty); ;
+    }
+
+    protected virtual void OnGameEnded()
+    {
+        GameEnded?.Invoke(this, EventArgs.Empty); ;
+    }
+
     protected void ChangeGameState(GameState state)
     {
         CurrentGameState = state;
@@ -55,6 +84,12 @@ public abstract class GameManager : MonoBehaviour
     protected void StartGameTimer()
     {
         GameTime = gameTimeInSecond;
+    }
+
+    protected void ResetGameScore()
+    {
+        GameScore = 0;
+        OnPlayerScored();
     }
 
     private void UpdateGameTime()

@@ -19,6 +19,8 @@ public class FishingPlayerController : MonoBehaviour
     private void Awake()
     {
         gameManager = FindObjectOfType<FishingGameManager>();
+
+        transform.position = hookStartPosition.position;
     }
 
     private void Update()
@@ -48,6 +50,13 @@ public class FishingPlayerController : MonoBehaviour
             gameManager.Score(HookedFish.PointsAmount);
             gameManager.RemoveFish(HookedFish.gameObject);
         }
+    }
+
+    public void ResetPlayer()
+    {
+        moveDirection = Vector2.zero;
+        transform.position = hookStartPosition.position;
+        IsHooking = false;
     }
 
     public void OnMove(InputValue value)
