@@ -151,6 +151,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2082124926}
     - target: {fileID: 1513586093, guid: 8f062a8d078705f488e7a585f6f101c2, type: 3}
+      propertyPath: scoreBoardCanvas
+      value: 
+      objectReference: {fileID: 144549315}
+    - target: {fileID: 1513586093, guid: 8f062a8d078705f488e7a585f6f101c2, type: 3}
       propertyPath: gameHighscoreText
       value: 
       objectReference: {fileID: 1812265169}
@@ -252,6 +256,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f062a8d078705f488e7a585f6f101c2, type: 3}
+--- !u!1 &144549315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 921193304554803918, guid: 8f062a8d078705f488e7a585f6f101c2, type: 3}
+  m_PrefabInstance: {fileID: 144549314}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &253092611
 GameObject:
   m_ObjectHideFlags: 0

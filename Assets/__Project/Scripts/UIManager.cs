@@ -7,6 +7,8 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
+    private GameObject scoreBoardCanvas;
+    [SerializeField]
     private TextMeshProUGUI gameScoreText;
     [SerializeField]
     private TextMeshProUGUI gameTimeText;
@@ -27,6 +29,7 @@ public class UIManager : MonoBehaviour
         gameManager.GameStarted += OnGameStarted;
         gameManager.GameEnded += OnGameEnded;
 
+        scoreBoardCanvas.SetActive(false);
         tutorialCanvas.SetActive(true);
         gameOverCanvas.SetActive(false);
     }
@@ -38,12 +41,14 @@ public class UIManager : MonoBehaviour
 
     private void OnGameStarted(object sender, EventArgs e)
     {
+        scoreBoardCanvas.SetActive(true);
         tutorialCanvas.SetActive(false);
         gameOverCanvas.SetActive(false);
     }
 
     private void OnGameEnded(object sender, EventArgs e)
     {
+        scoreBoardCanvas.SetActive(false);
         gameOverCanvas.SetActive(true);
 
         gameHighscoreText.text = gameManager.GameScore.ToString();
