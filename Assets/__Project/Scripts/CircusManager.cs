@@ -18,12 +18,14 @@ public class CircusManager : MonoBehaviour
         previousSceneName = currentSceneName;
         currentSceneName = sceneName;
 
-        var loadOperation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         loadOperation.completed += OnLoadSceneCompleted;
     }
 
     private void OnLoadSceneCompleted(AsyncOperation obj)
     {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentSceneName));
+
         SceneManager.UnloadSceneAsync(previousSceneName);
     }
 }
