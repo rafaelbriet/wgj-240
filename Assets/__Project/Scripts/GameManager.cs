@@ -9,6 +9,8 @@ public abstract class GameManager : MonoBehaviour
 {
     [SerializeField]
     protected float gameTimeInSecond = 60f;
+    [SerializeField]
+    protected string gameName;
 
     private CircusManager circusManager;
 
@@ -64,6 +66,11 @@ public abstract class GameManager : MonoBehaviour
         }
 
         circusManager.LoadScene(sceneName);
+    }
+
+    public void SaveScore(string playeName)
+    {
+        circusManager.SaveScore(gameName, playeName, GameScore);
     }
 
     protected virtual void OnGameStarted()

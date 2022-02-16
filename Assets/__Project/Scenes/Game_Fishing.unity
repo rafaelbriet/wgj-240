@@ -261,6 +261,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 921193304554803918, guid: 8f062a8d078705f488e7a585f6f101c2, type: 3}
   m_PrefabInstance: {fileID: 144549314}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &144549316 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1513586093, guid: 8f062a8d078705f488e7a585f6f101c2, type: 3}
+  m_PrefabInstance: {fileID: 144549314}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144549315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37f7cbb001a6d6c4daf693867b2c7829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &253092611
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameTimeInSecond: 15
+  gameName: Fishing
   fishTankCenter: {x: 0, y: -1}
   fishTankSize: {x: 16, y: 6}
   fishSpacing: 2
@@ -1497,6 +1509,62 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 359313384}
+    - target: {fileID: 1902345388, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902345388, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902345388, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902345388, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902345388, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902345388, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193924969008378167, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193924969008378167, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 193924969008378167, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 144549316}
+    - target: {fileID: 193924969008378167, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 193924969008378167, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SaveScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 193924969008378167, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 193924969008378167, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 5835184653858737822}
+    - target: {fileID: 193924969008378167, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TMPro.TMP_InputField, Unity.TextMeshPro
+      objectReference: {fileID: 0}
     - target: {fileID: 4392448358954579811, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1585,5 +1653,40 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5680272032497681596, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680272032497681596, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680272032497681596, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680272032497681596, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680272032497681596, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680272032497681596, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+--- !u!114 &5835184653858737822 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1902345389, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+  m_PrefabInstance: {fileID: 5835184653858737821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

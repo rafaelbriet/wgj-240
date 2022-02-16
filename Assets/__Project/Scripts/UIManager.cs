@@ -39,6 +39,11 @@ public class UIManager : MonoBehaviour
         UpdateGameTime();
     }
 
+    public void SaveScore(TMP_InputField input)
+    {
+        gameManager.SaveScore(input.text);
+    }
+
     private void OnGameStarted(object sender, EventArgs e)
     {
         scoreBoardCanvas.SetActive(true);
