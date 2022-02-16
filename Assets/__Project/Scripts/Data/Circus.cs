@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -23,6 +24,15 @@ public class Circus
     public GameScores GetGameScores(string gameName)
     {
         GameScores scores = GameScores.Find(x => x.GameName == gameName);
+
+        return scores;
+    }
+
+    public List<Score> GetScoresSortedByScore(string gameName)
+    {
+        GameScores gameScores = GetGameScores(gameName);
+
+        List<Score> scores = gameScores.Scores.OrderByDescending(score => score.Total).ToList();
 
         return scores;
     }
