@@ -1146,6 +1146,10 @@ PrefabInstance:
       propertyPath: gameHighscoreText
       value: 
       objectReference: {fileID: 867237625}
+    - target: {fileID: 70754658230401645, guid: 8f062a8d078705f488e7a585f6f101c2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8391660652416901024, guid: 97d318e27651d404c8dda054d729bc85, type: 3}
     - target: {fileID: 921193304554803914, guid: 8f062a8d078705f488e7a585f6f101c2, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1238,6 +1242,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_ScoreBoad
       objectReference: {fileID: 0}
+    - target: {fileID: 2248126976621764043, guid: 8f062a8d078705f488e7a585f6f101c2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8391660652416901024, guid: 97d318e27651d404c8dda054d729bc85, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f062a8d078705f488e7a585f6f101c2, type: 3}
 --- !u!1 &1189265325 stripped
