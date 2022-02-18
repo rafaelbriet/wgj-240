@@ -59,5 +59,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fish_Yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 7406113507784670146, guid: f162ab5b24168734e9b2a5755ee936ea, type: 3}
+      propertyPath: pointsAmount
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f162ab5b24168734e9b2a5755ee936ea, type: 3}

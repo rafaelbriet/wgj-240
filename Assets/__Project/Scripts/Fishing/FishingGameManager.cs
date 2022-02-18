@@ -11,7 +11,7 @@ public class FishingGameManager : GameManager
     [SerializeField]
     private float fishSpacing = 1f;
     [SerializeField]
-    private GameObject fishPrefab;
+    private GameObject[] fishPrefabs;
     [SerializeField]
     private FishingPlayerController playerController;
 
@@ -87,7 +87,8 @@ public class FishingGameManager : GameManager
             for (float y = -fishTankSize.y / 2; y < fishTankSize.y / 2; y += fishSpacing)
             {
                 yPosition += fishSpacing;
-                fishList.Add(Instantiate(fishPrefab, new Vector2(xPosition, yPosition), Quaternion.identity));
+                GameObject fishToSpawn = fishPrefabs[Random.Range(0, fishPrefabs.Length)];
+                fishList.Add(Instantiate(fishToSpawn, new Vector2(xPosition, yPosition), Quaternion.identity));
             }
         }
     }
