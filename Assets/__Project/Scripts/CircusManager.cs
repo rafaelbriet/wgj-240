@@ -10,10 +10,14 @@ public class CircusManager : MonoBehaviour
     private readonly string targetShootingName = "Target Shooting";
     private readonly string fishingName = "Fishing";
 
+    [SerializeField]
+    private AudioSource musicAudioSource;
+
     private string currentSceneName = "MainMenu";
     private string previousSceneName;
     private Circus circus;
 
+    public AudioSource MusicAudioSource => musicAudioSource;
     public Circus Circus => circus;
 
     private void Awake()
