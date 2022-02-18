@@ -17,6 +17,8 @@ public class TargetShootingManager : GameManager
     {
         OnGameStarted();
 
+        Cursor.visible = false;
+
         StartCoroutine(SpawnTarget());
 
         StartGameTimer();
@@ -26,6 +28,8 @@ public class TargetShootingManager : GameManager
     public override void StopGame()
     {
         OnGameEnded();
+
+        Cursor.visible = true;
 
         StopAllCoroutines();
 
