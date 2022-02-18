@@ -68,7 +68,7 @@ public class MainMenu : MonoBehaviour
     {
         scoreBoard.SetActive(true);
 
-        scoreBoardHeading.text = $"{gameName} Score Board";
+        scoreBoardHeading.text = $"{gameName} Scoreboard";
 
         List<Score> scores = circusManager.Circus.GetScoresSortedByScore(gameName);
 
