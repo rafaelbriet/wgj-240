@@ -1110,19 +1110,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1181019006, guid: 7a9453929bf792140ad14988b4d0c859, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1181019006, guid: 7a9453929bf792140ad14988b4d0c859, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1181019006, guid: 7a9453929bf792140ad14988b4d0c859, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 384
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1181019006, guid: 7a9453929bf792140ad14988b4d0c859, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -24
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1181019007, guid: 7a9453929bf792140ad14988b4d0c859, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1130,19 +1130,19 @@ PrefabInstance:
       objectReference: {fileID: 359313384}
     - target: {fileID: 1591565104, guid: 7a9453929bf792140ad14988b4d0c859, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1591565104, guid: 7a9453929bf792140ad14988b4d0c859, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1591565104, guid: 7a9453929bf792140ad14988b4d0c859, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 128
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1591565104, guid: 7a9453929bf792140ad14988b4d0c859, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -24
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1591565105, guid: 7a9453929bf792140ad14988b4d0c859, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1238,7 +1238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6244309342768336902, guid: 7a9453929bf792140ad14988b4d0c859, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a9453929bf792140ad14988b4d0c859, type: 3}
