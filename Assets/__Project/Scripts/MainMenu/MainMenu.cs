@@ -7,6 +7,8 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField]
+    private GameSettings gameSettings;
+    [SerializeField]
     private GameObject scoreBoard;
     [SerializeField]
     private GameObject scorePrefab;
@@ -28,6 +30,8 @@ public class MainMenu : MonoBehaviour
     private GameObject nextGameButton;
     [SerializeField]
     private GameObject previousGameButton;
+    [SerializeField]
+    private Camera mainCamera;
 
     private CircusManager circusManager;
     private bool isCameraMoving;
@@ -37,11 +41,34 @@ public class MainMenu : MonoBehaviour
     {
         circusManager = FindObjectOfType<CircusManager>();
 
+        isIntro = !gameSettings.hasIntroPlayed;
+
         scoreBoard.SetActive(false);
         nextGameButton.SetActive(false);
         previousGameButton.SetActive(false);
 
-        StartCoroutine(MoveCameraTo(targetShootingGame.position, introDuration));
+        if (gameSettings.hasIntroPlayed)
+        {
+            Debug.Log("hasIntroPlayed: " + gameSettings.hasIntroPlayed);
+            mainCamera.transform.position = new Vector3(gameSettings.lastMainMenuGamePosition.x, gameSettings.lastMainMenuGamePosition.y, mainCamera.transform.position.z);
+
+            if (gameSettings.hasNextGame)
+            {
+                nextGameButton.SetActive(true);
+            }
+            else
+            {
+                previousGameButton.SetActive(true);
+            }
+        }
+        else
+        {
+            Debug.Log("hasIntroPlayed: " + gameSettings.hasIntroPlayed);
+            StartCoroutine(MoveCameraTo(targetShootingGame.position, introDuration));
+            gameSettings.hasIntroPlayed = true;
+            gameSettings.hasNextGame = true;
+            gameSettings.lastMainMenuGamePosition = targetShootingGame.position;
+        }
     }
 
     public void LoadScene(string sceneName)
@@ -90,6 +117,8 @@ public class MainMenu : MonoBehaviour
         nextGameButton.SetActive(false);
         previousGameButton.SetActive(false);
         StartCoroutine(MoveCameraTo(fishingGame.position, moveToGameDuration, () => previousGameButton.SetActive(true)));
+        gameSettings.lastMainMenuGamePosition = fishingGame.position;
+        gameSettings.hasNextGame = false;
     }
 
     public void MoveCameraToPreviousGame()
@@ -97,8 +126,8 @@ public class MainMenu : MonoBehaviour
         nextGameButton.SetActive(false);
         previousGameButton.SetActive(false);
         StartCoroutine(MoveCameraTo(targetShootingGame.position, moveToGameDuration, () => nextGameButton.SetActive(true)));
-
-
+        gameSettings.lastMainMenuGamePosition = targetShootingGame.position;
+        gameSettings.hasNextGame = true;
     }
 
     private IEnumerator MoveCameraTo(Vector3 destination, float duration, Action action)
@@ -131,7 +160,7 @@ public class MainMenu : MonoBehaviour
             float timeSinceLerpStarted = Time.time - timeLerpStarted;
             float percentComplete = timeSinceLerpStarted / duration;
 
-            Camera.main.transform.position = Vector3.Lerp(originalPosition, destination, percentComplete);
+            mainCamera.transform.position = Vector3.Lerp(originalPosition, destination, percentComplete);
 
             timeElapsed += Time.deltaTime;
 

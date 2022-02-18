@@ -4029,6 +4029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d4f0ec3aa5b0ad41beae7083336c353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSettings: {fileID: 11400000, guid: f24311b66b963ce41a78558977f09523, type: 2}
   scoreBoard: {fileID: 9336399}
   scorePrefab: {fileID: 8084326594741962443, guid: af5cfc4d7f86ae34cb645d5653acf27a, type: 3}
   scoreBoardScrollViewContent: {fileID: 1611603769}
@@ -4040,6 +4041,7 @@ MonoBehaviour:
   moveToGameDuration: 2
   nextGameButton: {fileID: 1308791030}
   previousGameButton: {fileID: 616803458}
+  mainCamera: {fileID: 1379407644}
 --- !u!1 &2075879351
 GameObject:
   m_ObjectHideFlags: 0
