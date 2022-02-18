@@ -1426,7 +1426,9 @@ MonoBehaviour:
   gameName: Target Shooting
   topTargetSpawner: {fileID: 910446668}
   bottomTargetSpawner: {fileID: 1170769542}
-  targetPrefab: {fileID: 4433989725206317904, guid: bce4bdc10d7080d469971f2aa1158021, type: 3}
+  targetPrefabs:
+  - {fileID: 5752518525177093707, guid: 54cb87905ce92cb45970bd070c9a53eb, type: 3}
+  - {fileID: 4433989725206317904, guid: bce4bdc10d7080d469971f2aa1158021, type: 3}
   timeBetweenTargetSpawn: 0.5
 --- !u!4 &1694304382
 Transform:

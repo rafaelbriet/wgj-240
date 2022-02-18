@@ -9,7 +9,7 @@ public class TargetShootingManager : GameManager
     [SerializeField]
     private Transform bottomTargetSpawner;
     [SerializeField]
-    private GameObject targetPrefab;
+    private GameObject[] targetPrefabs;
     [SerializeField]
     private float timeBetweenTargetSpawn = 2f;
 
@@ -49,13 +49,15 @@ public class TargetShootingManager : GameManager
 
             if (timeToNextTarget <= 0f)
             {
+                GameObject targetToSpawn = targetPrefabs[Random.Range(0, targetPrefabs.Length)];
+
                 if (Random.Range(0, 2) == 0)
                 {
-                    Instantiate(targetPrefab, topTargetSpawner.position, Quaternion.identity).GetComponent<Target>().Init(this);
+                    Instantiate(targetToSpawn, topTargetSpawner.position, Quaternion.identity).GetComponent<Target>().Init(this);
                 }
                 else
                 {
-                    Instantiate(targetPrefab, bottomTargetSpawner.position, Quaternion.identity).GetComponent<Target>().Init(this);
+                    Instantiate(targetToSpawn, bottomTargetSpawner.position, Quaternion.identity).GetComponent<Target>().Init(this);
                 }
 
                 timeToNextTarget = timeBetweenTargetSpawn;
