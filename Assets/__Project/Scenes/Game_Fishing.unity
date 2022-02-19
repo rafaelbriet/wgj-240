@@ -424,6 +424,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2022605628}
     - target: {fileID: 1513586093, guid: 8f062a8d078705f488e7a585f6f101c2, type: 3}
+      propertyPath: inputErrorText
+      value: 
+      objectReference: {fileID: 5835184653858737829}
+    - target: {fileID: 1513586093, guid: 8f062a8d078705f488e7a585f6f101c2, type: 3}
       propertyPath: tutorialCanvas
       value: 
       objectReference: {fileID: 2082124926}
@@ -3183,3 +3187,14 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &5835184653858737829 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5723053005395788192, guid: ad78a5fcac3997040b0390162e3847d9, type: 3}
+  m_PrefabInstance: {fileID: 5835184653858737821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

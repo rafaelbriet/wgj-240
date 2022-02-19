@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     private GameObject gameOverCanvas;
     [SerializeField]
     private TextMeshProUGUI gameHighscoreText;
+    [SerializeField]
+    private TextMeshProUGUI inputErrorText;
 
     private GameManager gameManager;
 
@@ -33,6 +35,8 @@ public class UIManager : MonoBehaviour
         tutorialCanvas.SetActive(true);
         gameOverCanvas.SetActive(false);
 
+        inputErrorText.gameObject.SetActive(false);
+
         gameScoreText.text = "0";
     }
 
@@ -43,6 +47,12 @@ public class UIManager : MonoBehaviour
 
     public void SaveScore(TMP_InputField input)
     {
+        if (string.IsNullOrWhiteSpace(input.text))
+        {
+            inputErrorText.gameObject.SetActive(true);
+            return;
+        }
+
         gameManager.SaveScore(input.text);
     }
 
