@@ -33,7 +33,10 @@ public class FishingGameManager : GameManager
     public override void StartGame()
     {
         OnGameStarted();
-        
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         fishList = new List<GameObject>();
 
         SpawnFish();
@@ -45,6 +48,10 @@ public class FishingGameManager : GameManager
     public override void StopGame()
     {
         OnGameEnded();
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         ChangeGameState(GameState.Ended);
     }
 
