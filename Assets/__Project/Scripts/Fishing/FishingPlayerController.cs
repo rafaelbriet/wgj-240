@@ -23,6 +23,10 @@ public class FishingPlayerController : MonoBehaviour
     private Vector2 moveDirection;
     private Coroutine reelingAudioCoroutine;
     private FishingGameManager gameManager;
+    private float xMin;
+    private float xMax;
+    private float yMin;
+    private float yMax;
 
     public bool IsHooking { get; private set; }
     public Fish HookedFish { get; private set; }
@@ -33,6 +37,21 @@ public class FishingPlayerController : MonoBehaviour
         gameManager.GameEnded += OnGameGameEnded;
 
         transform.position = hookStartPosition.position;
+    }
+
+    private void Start()
+    {
+        float spriteSize = GetComponentInChildren<SpriteRenderer>().bounds.size.x * .5f;
+
+        Camera cam = Camera.main;
+        float camHeight = cam.orthographicSize;
+        float camWidth = cam.orthographicSize * cam.aspect;
+
+        yMin = -camHeight + spriteSize;
+        yMax = camHeight - spriteSize;
+
+        xMin = -camWidth + spriteSize;
+        xMax = camWidth - spriteSize;
     }
 
     private void OnGameGameEnded(object sender, System.EventArgs e)
@@ -47,7 +66,14 @@ public class FishingPlayerController : MonoBehaviour
             return;
         }
 
-        transform.Translate(speed * Time.deltaTime * moveDirection);
+        // Lock player movement within screen bounds from:
+        // https://answers.unity.com/questions/1840867/lock-player-movement-within-screen-bounds.html
+        Vector2 direction = moveDirection * speed * Time.deltaTime;
+
+        var xValidPosition = Mathf.Clamp(transform.position.x + direction.x, xMin, xMax);
+        var yValidPosition = Mathf.Clamp(transform.position.y + direction.y, yMin, yMax);
+
+        transform.position = new Vector3(xValidPosition, yValidPosition, 0f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

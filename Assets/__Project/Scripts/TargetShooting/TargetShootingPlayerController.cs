@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TargetShootingPlayerController : MonoBehaviour
+public class TargetShootingPlayerController : PlayerController
 {
     [SerializeField]
     private Transform crosshair;
