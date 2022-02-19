@@ -20,6 +20,8 @@ public class UIManager : MonoBehaviour
     private TextMeshProUGUI gameHighscoreText;
     [SerializeField]
     private TextMeshProUGUI inputErrorText;
+    [SerializeField]
+    private GameObject gameSettingCanvas;
 
     private GameManager gameManager;
 
@@ -61,12 +63,14 @@ public class UIManager : MonoBehaviour
         scoreBoardCanvas.SetActive(true);
         tutorialCanvas.SetActive(false);
         gameOverCanvas.SetActive(false);
+        gameSettingCanvas.SetActive(false);
     }
 
     private void OnGameEnded(object sender, EventArgs e)
     {
         scoreBoardCanvas.SetActive(false);
         gameOverCanvas.SetActive(true);
+        gameSettingCanvas.SetActive(true);
 
         gameHighscoreText.text = gameManager.GameScore.ToString();
     }
