@@ -41,7 +41,7 @@ public class FishingPlayerController : MonoBehaviour
             HookedFish = hookedFish;
             HookedFish.IsHooked = true;
             HookedFish.transform.SetParent(transform);
-
+            moveDirection = (hookStartPosition.position - transform.position).normalized;
         }
         else if (collision.CompareTag("HookStartPosition"))
         {
@@ -63,7 +63,6 @@ public class FishingPlayerController : MonoBehaviour
     {
         if (IsHooking)
         {
-            moveDirection = (hookStartPosition.position - transform.position).normalized;
             return;
         }
 
