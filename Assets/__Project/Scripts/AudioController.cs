@@ -1,40 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioController : MonoBehaviour
 {
     [SerializeField]
+    private GameSettings gameSettings;
+    [SerializeField]
     private AudioSource[] sfxAudioSources;
+    [SerializeField]
+    private Toggle audioToggle;
 
     private CircusManager circusManager;
 
     private void Start()
     {
         circusManager = FindObjectOfType<CircusManager>();
+
+        if (gameSettings.isAudioMuted)
+        {
+            audioToggle.isOn = true;
+        }
     }
 
     public void ToggleAllAudioSource()
     {
+        gameSettings.isAudioMuted = audioToggle.isOn;
+
         ToggleMusic();
         ToggleSFX();
     }
 
-    public void ToggleMusic()
+    private void ToggleMusic()
     {
         if (circusManager == null)
         {
             return;
         }
 
-        circusManager.MusicAudioSource.mute = !circusManager.MusicAudioSource.mute;
+        bool newMutedState = !circusManager.MusicAudioSource.mute;
+
+        if (newMutedState == circusManager.MusicAudioSource.mute)
+        {
+
+        }
+
+        circusManager.MusicAudioSource.mute = gameSettings.isAudioMuted;
     }
 
-    public void ToggleSFX()
+    private void ToggleSFX()
     {
         foreach (AudioSource source in sfxAudioSources)
         {
-            source.mute = !source.mute;
+            source.mute = gameSettings.isAudioMuted;
         }
     }
 }
