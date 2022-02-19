@@ -32,6 +32,8 @@ public class UIManager : MonoBehaviour
         scoreBoardCanvas.SetActive(false);
         tutorialCanvas.SetActive(true);
         gameOverCanvas.SetActive(false);
+
+        gameScoreText.text = "0";
     }
 
     private void Update()
