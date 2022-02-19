@@ -1,6 +1,6 @@
 # untitled-circus-game
 
-#Credits
+# Credits
 
 ## Music
 
