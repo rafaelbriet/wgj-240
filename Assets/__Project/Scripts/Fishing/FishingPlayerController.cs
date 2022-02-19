@@ -9,8 +9,19 @@ public class FishingPlayerController : MonoBehaviour
     private float speed = 8f;
     [SerializeField]
     private Transform hookStartPosition;
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip reelingStart;
+    [SerializeField]
+    private AudioClip reelingMiddle;
+    [SerializeField]
+    private AudioClip reelingEnd;
+    [SerializeField]
+    private AudioClip waterSplash;
 
     private Vector2 moveDirection;
+    private Coroutine reelingAudioCoroutine;
     private FishingGameManager gameManager;
 
     public bool IsHooking { get; private set; }
@@ -19,8 +30,14 @@ public class FishingPlayerController : MonoBehaviour
     private void Awake()
     {
         gameManager = FindObjectOfType<FishingGameManager>();
+        gameManager.GameEnded += OnGameGameEnded;
 
         transform.position = hookStartPosition.position;
+    }
+
+    private void OnGameGameEnded(object sender, System.EventArgs e)
+    {
+        audioSource.Stop();
     }
 
     private void Update()
@@ -42,6 +59,8 @@ public class FishingPlayerController : MonoBehaviour
             HookedFish.IsHooked = true;
             HookedFish.transform.SetParent(transform);
             moveDirection = (hookStartPosition.position - transform.position).normalized;
+            audioSource.PlayOneShot(reelingStart);
+            reelingAudioCoroutine = StartCoroutine(PlayReelingOneShot());
         }
         else if (collision.CompareTag("HookStartPosition"))
         {
@@ -49,7 +68,25 @@ public class FishingPlayerController : MonoBehaviour
             moveDirection = Vector2.zero;
             gameManager.Score(HookedFish.PointsAmount);
             gameManager.RemoveFish(HookedFish.gameObject);
+            StopCoroutine(reelingAudioCoroutine);
+            audioSource.Stop();
+            audioSource.PlayOneShot(reelingEnd);
         }
+        else if (collision.CompareTag("FishingPoolBorder"))
+        {
+            audioSource.PlayOneShot(waterSplash);
+        }
+    }
+
+    private IEnumerator PlayReelingOneShot()
+    {
+        while (audioSource.isPlaying)
+        {
+            yield return null;
+        }
+
+        audioSource.clip = reelingMiddle;
+        audioSource.Play();
     }
 
     public void ResetPlayer()

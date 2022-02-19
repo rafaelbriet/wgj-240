@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 327415063}
   - component: {fileID: 327415062}
   m_Layer: 0
-  m_Name: MenuSFXAudioSource
+  m_Name: SFXAudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2806,3 +2806,6 @@ MonoBehaviour:
   crosshairFollowDelay: 0.09
   crosshairSpeed: 3
   crossRandomMoveRadius: 0.8
+  shootAudioClip: {fileID: 8300000, guid: 8bdc4f26f140e3841b8aebfd58ef1ef7, type: 3}
+  hitAudioClip: {fileID: 8300000, guid: 44de7de0a96a73a4b83ffa9868438b6c, type: 3}
+  audioSource: {fileID: 327415062}

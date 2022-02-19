@@ -12,6 +12,12 @@ public class TargetShootingPlayerController : MonoBehaviour
     private float crosshairSpeed = 1f;
     [SerializeField]
     private float crossRandomMoveRadius = 0.5f;
+    [SerializeField]
+    private AudioClip shootAudioClip;
+    [SerializeField]
+    private AudioClip hitAudioClip;
+    [SerializeField]
+    private AudioSource audioSource;
 
     private Vector3 mousePosition;
     private GameManager gameManager;
@@ -51,11 +57,14 @@ public class TargetShootingPlayerController : MonoBehaviour
             return;
         }
 
+        audioSource.PlayOneShot(shootAudioClip);
+
         var hit = Physics2D.Raycast(crosshair.position, Vector2.zero);
 
         if (hit.collider != null && hit.collider.CompareTag("Target"))
         {
             hit.collider.GetComponent<Target>().Hit();
+            audioSource.PlayOneShot(hitAudioClip);
         }
     }
 
