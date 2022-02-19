@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874e659d5d55eab488d9ef3636939910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTimeInSecond: 15
+  gameTimeInSecond: 20
   gameName: Fishing
   fishTankCenter: {x: -0.5, y: -1.5}
   fishTankSize: {x: 15, y: 5}
