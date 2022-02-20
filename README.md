@@ -1,7 +1,7 @@
 # Joy's World
 
 <p align="center">
-  <image src="https://user-images.githubusercontent.com/5656207/154823203-b2cb9fc7-5985-4abb-a2f6-591e00192126.gif" />
+  <image src="https://user-images.githubusercontent.com/5656207/154823340-979a539b-b115-4b1b-8549-6d89bbf7daac.gif" />
 </p>
 
 ## Screenshots
