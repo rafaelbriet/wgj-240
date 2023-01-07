@@ -55,7 +55,12 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-        gameManager.SaveScore(input.text);
+        bool hasSaved = gameManager.SaveScore(input.text);
+
+        if (hasSaved == false)
+        {
+            Debug.Log("Score is already saved");
+        }
     }
 
     private void OnGameStarted(object sender, EventArgs e)

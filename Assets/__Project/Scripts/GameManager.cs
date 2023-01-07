@@ -21,6 +21,7 @@ public abstract class GameManager : MonoBehaviour
     public int GameScore { get; protected set; }
     public float GameTime { get; protected set; }
     public GameState CurrentGameState { get; private set; }
+    public bool IsScoreSaved { get; private set; }
 
     private void Awake()
     {
@@ -68,9 +69,16 @@ public abstract class GameManager : MonoBehaviour
         circusManager.LoadScene(sceneName);
     }
 
-    public void SaveScore(string playeName)
+    public bool SaveScore(string playeName)
     {
+        if (IsScoreSaved)
+        {
+            return false;
+        }
+
         circusManager.SaveScore(gameName, playeName, GameScore);
+        IsScoreSaved = true;
+        return true;
     }
 
     protected virtual void OnGameStarted()
@@ -95,6 +103,7 @@ public abstract class GameManager : MonoBehaviour
 
     protected void ResetGameScore()
     {
+        IsScoreSaved = false;
         GameScore = 0;
         OnPlayerScored();
     }
